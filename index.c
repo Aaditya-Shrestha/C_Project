@@ -5,29 +5,26 @@
 #define YELLOW_DUR 3
 #define GREEN_DUR 10
 
+
 void displayLight(char* light, int dur);
-void system();
-int main() {
+
+int main()  {
+    printf("\nTraffic Light\t||\t Time remaining\n");
     while(1)
     {
-        displayLight("Red", RED_DUR);
-        displayLight("Yellow", YELLOW_DUR);
-        displayLight("Green", GREEN_DUR);
+        displayLight("Red",RED_DUR);
+        displayLight("Yellow",YELLOW_DUR);
+        displayLight("Green",GREEN_DUR);
     }
     return 0;
 }
 
 void displayLight(char* light, int dur)
-{
-    system("cls");
-    printf("%s light is ON\n", light);
-    
+{   
+    for(int i = dur; i > 0; i--){
+    printf("\r%-15s\t||\t%2d", light, i);
   
-    for(int i = dur; i > 0; i--)
-    {
-        printf("%d\n", i);
-        sleep(1);  
+    fflush(stdout);
+    sleep(1);
     }
-    
-    printf("%s light is OFF\n", light);
 }
